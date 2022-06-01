@@ -3,6 +3,8 @@ import numpy as np
 import os
 import glob
 from configparser import ConfigParser
+import json
+from json import JSONEncoder
 
 # Defining the dimensions of checkerboard
 CHECKERBOARD = (6,9)
@@ -69,7 +71,20 @@ print(rvecs)
 print("Translational vector : \n")
 print(tvecs)
 
+#converting the (tvecs,rvecs) numpy array to simple list
+tvecs = np.array(tvecs).tolist()
+rvecs = np.array(rvecs).tolist()
 
+#labelling the names
+test_names = ['Translational Coordinate',
+            'Rotational Coordinate'] 
+tvector = {test_names[0]: tvecs}           
+rvector = {test_names[1]: rvecs}
+#creating the json file and adding the coordinate of rvec and tvec in it.                       
+with open('data.json', 'w') as f:
+    json.dump(tvector, f,separators=(',', ':'))
+    f.write('\n')
+    json.dump(rvector, f,separators=(',', ':'))
 
 '''
 We are storing the ret value of master image in config.ini file as RET_VALUE,
