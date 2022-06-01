@@ -72,10 +72,9 @@ print(tvecs)
 
 
 '''
-here we are comparing the values of ret value of master image(i.e. master.jpg),
-means we are storing the ret value in config.ini file as RET_VALUE,
-and after that we will compare the RET_value with ret of test image(i.e. test1.jpg)
-if ret of test image(i.e. test1.jpg) is greater than the ret value of master image(i.e. master.jpg),
+We are storing the ret value of master image in config.ini file as RET_VALUE,
+and after that we will compare that RET_value with ret of test image(i.e. test1.jpg)
+if ret of test image(i.e. test1.jpg) is greater than the RET_VALUE of master image(i.e. master.jpg),
 then we will undistort the image otherwise not.
 '''
 #reading the config.ini file
